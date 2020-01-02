@@ -11,6 +11,12 @@
         :key="thread.tid"
         :threadDetail="thread"
       ></item>
+
+      <item-loading
+        v-for="i in 3"
+        :key="i"
+      ></item-loading>
+
       <span style="font-size: 0px;"></span>
     </div>
   </div>
@@ -21,12 +27,14 @@ import Vue from 'vue'
 import { listThreads, ThreadDetail } from './threads'
 
 import Item from './thread-list-item.vue'
+import ItemLoading from './thread-list-item-loading.vue'
 
 const list = listThreads()
 
 export default Vue.extend({
   components: {
-    Item
+    Item,
+    ItemLoading
   },
   data () {
     return {

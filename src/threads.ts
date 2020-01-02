@@ -117,6 +117,7 @@ export const listThreads = async function * (perPage: number = 25) {
       page++
     } catch (err) {
       console.error(err)
+      yield []
     }
   }
 }
