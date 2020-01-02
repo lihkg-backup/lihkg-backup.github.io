@@ -1,0 +1,22 @@
+{
+  "short_name": "LIHKG",
+  "name": "LIHKG",
+  "description": "新世代，新平台，新開始",
+  "icons": [
+    {
+      "src": "/assets/images/logo-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#fbc308",
+  "background_color": "#1d1d1d",
+  "orientation": "portrait"
+}

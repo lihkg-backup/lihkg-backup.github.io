@@ -1,0 +1,210 @@
+pre {
+  border-radius: 4px;
+  display: block;
+  overflow-x: auto;
+  padding: 1rem;
+  text-align: left;
+  word-break: normal;
+  word-wrap: normal
+}
+
+code {
+  display: inline-block;
+  font-family: Ubuntu Mono, monospace;
+  font-size: 1rem !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1rem;
+  text-decoration: none
+}
+
+[data-app-fs=xs] code {
+  font-size: .8rem !important
+}
+
+[data-app-fs=s] code {
+  font-size: .9rem !important
+}
+
+[data-app-fs=m] code {
+  font-size: 1rem !important
+}
+
+[data-app-fs=l] code {
+  font-size: 1.1rem !important
+}
+
+[data-app-fs=xl] code {
+  font-size: 1.2rem !important
+}
+
+[data-app-dm] pre {
+  background: #2a2a2a
+}
+
+[data-app-dm] code {
+  color: #abb2bf
+}
+
+[data-app-dm] .hljs-comment,
+[data-app-dm] .hljs-quote {
+  color: #5c6370;
+  font-style: italic
+}
+
+[data-app-dm] .hljs-doctag,
+[data-app-dm] .hljs-formula,
+[data-app-dm] .hljs-keyword {
+  color: #c678dd
+}
+
+[data-app-dm] .hljs-deletion,
+[data-app-dm] .hljs-name,
+[data-app-dm] .hljs-section,
+[data-app-dm] .hljs-selector-tag,
+[data-app-dm] .hljs-subst {
+  color: #e06c75
+}
+
+[data-app-dm] .hljs-literal {
+  color: #56b6c2
+}
+
+[data-app-dm] .hljs-addition,
+[data-app-dm] .hljs-attribute,
+[data-app-dm] .hljs-meta-string,
+[data-app-dm] .hljs-regexp,
+[data-app-dm] .hljs-string {
+  color: #98c379
+}
+
+[data-app-dm] .hljs-built_in,
+[data-app-dm] .hljs-class .hljs-title {
+  color: #e6c07b
+}
+
+[data-app-dm] .hljs-attr,
+[data-app-dm] .hljs-number,
+[data-app-dm] .hljs-selector-attr,
+[data-app-dm] .hljs-selector-class,
+[data-app-dm] .hljs-selector-pseudo,
+[data-app-dm] .hljs-template-variable,
+[data-app-dm] .hljs-type,
+[data-app-dm] .hljs-variable {
+  color: #d19a66
+}
+
+[data-app-dm] .hljs-bullet,
+[data-app-dm] .hljs-link,
+[data-app-dm] .hljs-meta,
+[data-app-dm] .hljs-selector-id,
+[data-app-dm] .hljs-symbol,
+[data-app-dm] .hljs-title {
+  color: #61aeee
+}
+
+[data-app-dm] .hljs-emphasis {
+  font-style: italic
+}
+
+[data-app-dm] .hljs-strong {
+  font-weight: 700
+}
+
+[data-app-dm] .hljs-link {
+  text-decoration: underline
+}
+
+body:not([data-app-dm]) pre {
+  background: #f8f8f8
+}
+
+body:not([data-app-dm]) code {
+  color: #333
+}
+
+body:not([data-app-dm]) .hljs-comment,
+body:not([data-app-dm]) .hljs-quote {
+  color: #998;
+  font-style: italic
+}
+
+body:not([data-app-dm]) .hljs-keyword,
+body:not([data-app-dm]) .hljs-selector-tag,
+body:not([data-app-dm]) .hljs-subst {
+  color: #333;
+  font-weight: 700
+}
+
+body:not([data-app-dm]) .hljs-literal,
+body:not([data-app-dm]) .hljs-number,
+body:not([data-app-dm]) .hljs-tag .hljs-attr,
+body:not([data-app-dm]) .hljs-template-variable,
+body:not([data-app-dm]) .hljs-variable {
+  color: teal
+}
+
+body:not([data-app-dm]) .hljs-doctag,
+body:not([data-app-dm]) .hljs-string {
+  color: #d14
+}
+
+body:not([data-app-dm]) .hljs-section,
+body:not([data-app-dm]) .hljs-selector-id,
+body:not([data-app-dm]) .hljs-title {
+  color: #900;
+  font-weight: 700
+}
+
+body:not([data-app-dm]) .hljs-subst {
+  font-weight: 400
+}
+
+body:not([data-app-dm]) .hljs-class .hljs-title,
+body:not([data-app-dm]) .hljs-type {
+  color: #458;
+  font-weight: 700
+}
+
+body:not([data-app-dm]) .hljs-attribute,
+body:not([data-app-dm]) .hljs-name,
+body:not([data-app-dm]) .hljs-tag {
+  color: navy;
+  font-weight: 400
+}
+
+body:not([data-app-dm]) .hljs-link,
+body:not([data-app-dm]) .hljs-regexp {
+  color: #009926
+}
+
+body:not([data-app-dm]) .hljs-bullet,
+body:not([data-app-dm]) .hljs-symbol {
+  color: #990073
+}
+
+body:not([data-app-dm]) .hljs-built_in,
+body:not([data-app-dm]) .hljs-builtin-name {
+  color: #0086b3
+}
+
+body:not([data-app-dm]) .hljs-meta {
+  color: #999;
+  font-weight: 700
+}
+
+body:not([data-app-dm]) .hljs-deletion {
+  background: #fdd
+}
+
+body:not([data-app-dm]) .hljs-addition {
+  background: #dfd
+}
+
+body:not([data-app-dm]) .hljs-emphasis {
+  font-style: italic
+}
+
+body:not([data-app-dm]) .hljs-strong {
+  font-weight: 700
+}
