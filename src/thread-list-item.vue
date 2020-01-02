@@ -55,9 +55,9 @@ export default Vue.extend({
       return `#/thread/${threadDetail.tid}/`
     },
     time () {
-      const { replies }: ThreadDetail = this.threadDetail
-      const updateTime = replies[replies.length - 1].replyTime
-      return formatTime(updateTime)
+      const { replies, updateTime }: ThreadDetail = this.threadDetail
+      const _updateTime = updateTime || replies[replies.length - 1].replyTime
+      return formatTime(_updateTime)
     }
   },
   methods: {

@@ -16,6 +16,7 @@ export interface ThreadDetail {
   title: string;
 
   createTime: Date;
+  updateTime?: Date;
 
   /** user id */
   uid: number;
