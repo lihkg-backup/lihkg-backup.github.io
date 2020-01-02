@@ -14,6 +14,7 @@
         <right-panel
           v-if="!!thread"
           :threadDetail="thread"
+          :key="thread.tid"
           ref="rightPanel"
         ></right-panel>
         <right-panel-blank v-else></right-panel-blank>
@@ -66,9 +67,6 @@ export default Vue.extend({
         this.thread = thread
 
         document.title = `${thread.title} | LIHKG❤️Github`
-
-        const rightPanel = this.$refs.rightPanel
-        rightPanel.scrollTop = 0
       } else {
         this.thread = null
         if (hash !== '#/') {
