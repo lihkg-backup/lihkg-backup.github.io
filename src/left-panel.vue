@@ -12,10 +12,12 @@
         :threadDetail="thread"
       ></item>
 
-      <item-loading
-        v-for="i in 3"
-        :key="i"
-      ></item-loading>
+      <div ref="loadingItems">
+        <item-loading
+          v-for="i in 3"
+          :key="i"
+        ></item-loading>
+      </div>
 
       <span style="font-size: 0px;"></span>
     </div>
@@ -55,13 +57,17 @@ export default Vue.extend({
       const threads: ThreadDetail[] = [...threadsMap.values()]
       this.threads = threads
     },
+    isVisible (el: HTMLElement): boolean {
+      const { top } = el.getBoundingClientRect()
+      return top < window.innerHeight
+    },
     async onScroll () {
       if (this.lock) {
         return
       }
 
-      const el: HTMLDivElement = this.$refs.leftPanel
-      if (el.scrollHeight - el.scrollTop < el.clientHeight + 200) {
+      const el: HTMLDivElement = this.$refs.loadingItems
+      if (this.isVisible(el)) {
         this.lock = true
         await this.updateThreads()
         this.lock = false
@@ -70,6 +76,11 @@ export default Vue.extend({
   },
   mounted () {
     this.updateThreads()
+    window.addEventListener('scroll', () => {
+      if (typeof document.body.dataset.appMb !== 'undefined') {
+        this.onScroll()
+      }
+    })
   }
 })
 </script>

@@ -37,6 +37,19 @@ import { getThread } from './threads'
 
 const tidReg = /^#\/thread\/(\d+)/
 
+function onWindowResize () {
+  if (window.innerWidth < 768) {
+    delete document.body.dataset.appCx
+    document.body.dataset.appMb = ''
+  } else {
+    delete document.body.dataset.appMb
+    document.body.dataset.appCx = ''
+  }
+}
+
+window.addEventListener('resize', onWindowResize)
+onWindowResize()
+
 export default Vue.extend({
   components: {
     TopNav,
@@ -65,10 +78,13 @@ export default Vue.extend({
 
         const thread = await getThread(tid)
         this.thread = thread
+        document.documentElement.scrollTop = 0
+        document.body.dataset.appTv = ''
 
         document.title = `${thread.title} | LIHKG❤️Github`
       } else {
         this.thread = null
+        delete document.body.dataset.appTv
         if (hash !== '#/') {
           window.location.hash = '#/'
         }

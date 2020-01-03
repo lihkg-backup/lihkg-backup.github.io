@@ -3,7 +3,7 @@
 
     <div class="_2k_IfadJWjcLJlSKkz_R2-">
       <a
-        href="/"
+        href="#/"
         class="Po8iCa0b9ZUovZ9Ofa_Gk btn-color"
       >
         <i class="i-arrow-left"></i>

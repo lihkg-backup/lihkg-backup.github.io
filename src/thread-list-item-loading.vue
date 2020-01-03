@@ -5,3 +5,8 @@
     <div class="nBJyqYwElkS3hPkZd8HyH undefined"></div>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend()
+</script>
