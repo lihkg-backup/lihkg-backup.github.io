@@ -9,7 +9,7 @@
         <div :style="'background-image: url(/assets/images/logo.svg); height: 36px; width: 36px;'"></div>
       </div>
 
-      <span style="padding-right:20px">LIHKG❤️Github</span>
+      <span style="padding-right:20px">{{ siteName }}</span>
     </div>
 
     <panel-footer></panel-footer>
@@ -19,10 +19,16 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { SITE_NAME } from './config'
 
 import PanelFooter from './footer.vue'
 
 export default Vue.extend({
+  data () {
+    return {
+      siteName: SITE_NAME
+    }
+  },
   components: {
     PanelFooter
   }

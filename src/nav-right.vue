@@ -16,6 +16,24 @@
 
     <div class="nav-btn-container btn-color">
       <span
+        @click="link"
+        data-tip="原始連結"
+        title="原始連結"
+        currentitem="false"
+      >
+        <i class="i-link"></i>
+      </span>
+
+      <span
+        @click="jsonCode"
+        data-tip="JSON Data"
+        title="JSON Data"
+        currentitem="false"
+      >
+        <i class="i-code-braces"></i>
+      </span>
+
+      <span
         class="_8_NT40G-QNQzcSSTrRXAD"
         style="color: inherit; padding-top: 0px;"
         data-tip="正評"
@@ -61,9 +79,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { SITE_NAME, REPO_OWNER, REPO_NAME } from './config'
 
 export default Vue.extend({
   props: {
+    tid: {
+      type: Number,
+      default: 0
+    },
     like: {
       type: Number,
       default: 0
@@ -74,10 +97,17 @@ export default Vue.extend({
     }
   },
   methods: {
+    link () {
+      window.open(`https://lih.kg/${this.tid}`)
+    },
     share () {
       const title = this.$slots.default[0].text
-      const shareText = `${title}\n- 分享自 LIHKG❤️Github\n${window.location.href}`
+      const shareText = `${title}\n- 分享自 ${SITE_NAME}\n${window.location.href}`
       window.open(`tg://msg_url?text=${encodeURIComponent(shareText)}`)
+    },
+    jsonCode () {
+      const lastDigit = this.tid % 10
+      window.open(`https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/master/${lastDigit}/${this.tid}.json`)
     }
   }
 })

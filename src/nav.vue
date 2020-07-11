@@ -2,6 +2,7 @@
   <nav class="top-nav">
     <nav-left>{{ category }}</nav-left>
     <nav-right
+      :tid="tid"
       :like="like"
       :dislike="dislike"
       v-show="!!threadDetail"
@@ -33,6 +34,14 @@ export default Vue.extend({
     }
   },
   computed: {
+    tid (): number {
+      const thread: ThreadDetail = this.threadDetail
+      if (!thread) {
+        return 0
+      } else {
+        return thread.tid
+      }
+    },
     threadTitle (): string {
       const thread: ThreadDetail = this.threadDetail
       if (!thread) {

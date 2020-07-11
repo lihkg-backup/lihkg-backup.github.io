@@ -8,14 +8,20 @@
       >Github Repository</a>
     </span>
     <br>
-    Copyright © {{ year }} LIHKG❤️Github. All Rights Reserved.
+    Copyright © {{ year }} {{ siteName }}. All Rights Reserved.
   </small>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { SITE_NAME } from './config'
 
 export default Vue.extend({
+  data () {
+    return {
+      siteName: SITE_NAME
+    }
+  },
   computed: {
     year () {
       return new Date().getFullYear()

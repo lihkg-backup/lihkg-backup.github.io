@@ -33,6 +33,7 @@ import LeftPanel from './left-panel.vue'
 import RightPanel from './right-panel.vue'
 import RightPanelBlank from './right-panel-blank.vue'
 
+import { SITE_NAME } from './config'
 import { getThread } from './threads'
 
 const tidReg = /^#\/thread\/(\d+)/
@@ -81,7 +82,7 @@ export default Vue.extend({
         document.documentElement.scrollTop = 0
         document.body.dataset.appTv = ''
 
-        document.title = `${thread.title} | LIHKG❤️Github`
+        document.title = `${thread.title} | ${SITE_NAME}`
       } else {
         this.thread = null
         delete document.body.dataset.appTv

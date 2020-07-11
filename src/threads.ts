@@ -1,5 +1,6 @@
 
 import Octokit from '@octokit/rest'
+import { REPO_OWNER, REPO_NAME } from './config'
 
 const threadsCache = new Map<number, ThreadDetail>()
 
@@ -58,7 +59,7 @@ export interface Reply {
 export class ThreadDetail {
   private filePath: string
 
-  private static baseurl: string = 'https://cdn.jsdelivr.net/gh/lihkg-backup/thread'
+  private static baseurl: string = `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}`
 
   constructor (tid: number) {
     this.filePath = this.getFilePath(tid)
@@ -97,8 +98,8 @@ export const listThreads = async function * () {
   while (true) {
     try {
       const { data: commits } = await octokit.repos.listCommits({
-        owner: 'lihkg-backup',
-        repo: 'thread',
+        owner: REPO_OWNER,
+        repo: REPO_NAME,
         until,
         per_page: 1,
         page
