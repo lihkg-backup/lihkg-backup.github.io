@@ -88,9 +88,8 @@ export class ThreadDetail {
 }
 
 const octokit = new Octokit()
-const tidReg = /(\d+).json/
 
-export const listThreads = async function * (perPage: number = 25) {
+export const listThreads = async function * () {
   const until = new Date().toISOString()
 
   let page = 1
@@ -101,15 +100,17 @@ export const listThreads = async function * (perPage: number = 25) {
         owner: 'lihkg-backup',
         repo: 'thread',
         until,
-        per_page: perPage,
+        per_page: 1,
         page
       })
 
       const threads = commits.map((i) => {
-        const message = i.commit.message
-        const tid = +message.match(tidReg)[1]
-        return getThread(tid)
-      })
+        const message = i.commit.message // <ISO8601 string> update\n<tid>,<tid>,...
+        const tidList = message.split('\n')[1].split(',')
+        return tidList.map((tid) => {
+          return getThread(+tid)
+        })
+      }).reduce((p, c) => p.concat(c), []) // flat()
 
       yield await Promise.all(
         threads
