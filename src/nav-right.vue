@@ -107,7 +107,7 @@ export default Vue.extend({
     },
     jsonCode () {
       const lastDigit = this.tid % 10
-      window.open(`https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/master/${lastDigit}/${this.tid}.json`)
+      window.open(`https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/${lastDigit}/${this.tid}.json`)
     }
   }
 })
