@@ -73,7 +73,7 @@ export class ThreadDetail {
 
   public async fetch () {
     try {
-      const url = `${ThreadDetail.baseurl}/${this.filePath}`
+      const url = `${ThreadDetail.baseurl}@${this.filePath}`
       const response = await window.fetch(url, {
         cache: 'no-cache'
       })
