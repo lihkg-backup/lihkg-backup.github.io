@@ -1,6 +1,6 @@
 
 import Octokit from '@octokit/rest'
-import { REPO_OWNER, REPO_NAME } from './config'
+import { getRepoOwner, REPO_NAME } from './config'
 
 const threadsCache = new Map<number, ThreadDetail>()
 
@@ -59,21 +59,23 @@ export interface Reply {
 export class ThreadDetail {
   private filePath: string
 
-  private static baseurl: string = `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}`
+  private static baseurl: string = 'https://cdn.jsdelivr.net/gh/'
 
-  constructor (tid: number) {
+  constructor (public tid: number) {
     this.filePath = this.getFilePath(tid)
   }
 
+  private get lastDigit () {
+    return this.tid % 10
+  }
+
   private getFilePath (tid: number | string) {
-    tid = tid.toString()
-    const lastDigit = tid[tid.length - 1]
-    return `${lastDigit}/${tid}.json`
+    return `${this.lastDigit}/${tid}.json`
   }
 
   public async fetch () {
     try {
-      const url = `${ThreadDetail.baseurl}@${this.filePath}`
+      const url = `${ThreadDetail.baseurl}${getRepoOwner(this.lastDigit)}/${REPO_NAME}@${this.filePath}`
       const response = await window.fetch(url, {
         cache: 'no-cache'
       })
@@ -98,7 +100,7 @@ export const listThreads = async function * () {
   while (true) {
     try {
       const { data: commits } = await octokit.repos.listCommits({
-        owner: REPO_OWNER,
+        owner: getRepoOwner(),
         repo: REPO_NAME,
         until,
         per_page: 1,

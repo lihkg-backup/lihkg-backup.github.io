@@ -79,7 +79,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { SITE_NAME, REPO_OWNER, REPO_NAME } from './config'
+import { SITE_NAME, getRepoOwner, REPO_NAME } from './config'
 
 export default Vue.extend({
   props: {
@@ -107,7 +107,7 @@ export default Vue.extend({
     },
     jsonCode () {
       const lastDigit = this.tid % 10
-      window.open(`https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/${lastDigit}/${this.tid}.json`)
+      window.open(`https://github.com/${getRepoOwner(lastDigit)}/${REPO_NAME}/blob/${lastDigit}/${this.tid}.json`)
     }
   }
 })
